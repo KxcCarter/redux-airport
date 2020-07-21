@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import './index.css';
 
 // This is a reducer. It handles state for arrays or objects.
 

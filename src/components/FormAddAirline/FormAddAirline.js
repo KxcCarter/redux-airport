@@ -30,7 +30,8 @@ class FormAddAirline extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="wrapper">
+        <h3>Add Airline</h3>
         <form onSubmit={this.clickAddAirline}>
           <input
             onChange={(event) => this.handleInputChange(event, 'enteredAirline')}

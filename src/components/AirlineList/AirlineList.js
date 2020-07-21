@@ -13,15 +13,18 @@ class AirlineList extends Component {
       );
     });
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Airline in Airport</th>
-            <th>Planes in Airport</th>
-          </tr>
-        </thead>
-        <tbody>{airlinesInAirport}</tbody>
-      </table>
+      <div className="wrapper">
+        <h3>Airline Data</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Airline in Airport</th>
+              <th>Planes in Airport</th>
+            </tr>
+          </thead>
+          <tbody>{airlinesInAirport}</tbody>
+        </table>
+      </div>
     );
   }
 }
