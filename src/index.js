@@ -5,7 +5,10 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 // This is a reducer. It handles state for arrays or objects.
-const airlineList = (state = ['Luftansa'], action) => {
+
+const defaultAirlineList = [{ airline: 'Luftansa', numberOfPlanes: 24 }];
+
+const airlineList = (state = defaultAirlineList, action) => {
   if (action.type === 'ADD_AIRLINE') {
     // I'm only sending a string on payload, so I don't need to add
     // anything like '.data' or '.myAddedStuff'

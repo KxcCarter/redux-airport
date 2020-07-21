@@ -6,7 +6,8 @@ class AirlineList extends Component {
     const airlinesInAirport = this.props.store.airlineList.map((item, index) => {
       return (
         <tr key={index}>
-          <td>{item}</td>
+          <td>{item.airline}</td>
+          <td>{item.numberOfPlanes}</td>
         </tr>
       );
     });
@@ -14,6 +15,7 @@ class AirlineList extends Component {
       <table>
         <thead>
           <th>Airline in Airport</th>
+          <th>Planes in Airport</th>
         </thead>
         <tbody>{airlinesInAirport}</tbody>
       </table>
