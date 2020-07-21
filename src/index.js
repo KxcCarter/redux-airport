@@ -6,16 +6,21 @@ import { Provider } from 'react-redux';
 
 // This is a reducer. It handles state for arrays or objects.
 
-const defaultAirlineList = [{ airline: 'Luftansa', numberOfPlanes: 24 }];
+const defaultAirlineList = [
+  { airline: 'Luftansa', numberOfPlanes: 24 },
+  { airline: 'Delta', numberOfPlanes: 15 },
+];
 
 const airlineList = (state = defaultAirlineList, action) => {
+  console.log(action);
   if (action.type === 'ADD_AIRLINE') {
-    // I'm only sending a string on payload, so I don't need to add
-    // anything like '.data' or '.myAddedStuff'
-    return [...state, action.payload];
+    // change structure
+    let newPlane = {
+      airline: action.payload.airlineFormData.enteredAirline,
+      numberOfPlanes: action.payload.airlineFormData.enteredNumber,
+    };
+    return [...state, newPlane];
   }
-
-  // state currently is an array that holds 'Luftansa'
   // A reducer always has to return something.
   return state;
 };

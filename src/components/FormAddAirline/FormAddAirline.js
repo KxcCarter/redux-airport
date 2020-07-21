@@ -5,13 +5,14 @@ class FormAddAirline extends Component {
   // Local state set up to temporarily store value from input.
   state = {
     enteredAirline: '',
+    enteredNumber: '',
   };
 
   // The handleChange method is the same as before Redux.
   // It just deals with the local state.
-  handleInputChange = (event) => {
+  handleInputChange = (event, fieldKey) => {
     this.setState({
-      enteredAirline: event.target.value,
+      [fieldKey]: event.target.value,
     });
   };
 
@@ -19,11 +20,12 @@ class FormAddAirline extends Component {
     event.preventDefault();
     this.props.dispatch({
       type: 'ADD_AIRLINE',
-      payload: this.state.enteredAirline,
+      payload: { airlineFormData: this.state },
     });
 
     this.setState({
       enteredAirline: '',
+      enteredNumber: '',
     });
   };
   render() {
@@ -31,9 +33,15 @@ class FormAddAirline extends Component {
       <div>
         <form onSubmit={this.clickAddAirline}>
           <input
-            onChange={this.handleInputChange}
+            onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
             placeholder="Airline Name"
             value={this.state.enteredAirline}
+            required
+          />
+          <input
+            onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
+            placeholder="Number of Planes"
+            value={this.state.enteredNumber}
             required
           />
           <button>Add Airline</button>

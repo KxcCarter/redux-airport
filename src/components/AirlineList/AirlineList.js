@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class AirlineList extends Component {
   render() {
+    console.log('this.props.store.airlineList: ', this.props.store.airlineList);
     const airlinesInAirport = this.props.store.airlineList.map((item, index) => {
       return (
         <tr key={index}>
@@ -14,8 +15,10 @@ class AirlineList extends Component {
     return (
       <table>
         <thead>
-          <th>Airline in Airport</th>
-          <th>Planes in Airport</th>
+          <tr>
+            <th>Airline in Airport</th>
+            <th>Planes in Airport</th>
+          </tr>
         </thead>
         <tbody>{airlinesInAirport}</tbody>
       </table>
