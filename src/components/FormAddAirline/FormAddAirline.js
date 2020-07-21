@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Material-UI ---
+// import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import { Button, TextField } from '@material-ui/core';
+
 class FormAddAirline extends Component {
   // Local state set up to temporarily store value from input.
   state = {
@@ -30,24 +36,34 @@ class FormAddAirline extends Component {
   };
   render() {
     return (
-      <div className="wrapper">
-        <h3>Add Airline</h3>
-        <form onSubmit={this.clickAddAirline}>
-          <input
-            onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
-            placeholder="Airline Name"
-            value={this.state.enteredAirline}
-            required
-          />
-          <input
-            onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
-            placeholder="Number of Planes"
-            value={this.state.enteredNumber}
-            required
-          />
-          <button>Add Airline</button>
-        </form>
-      </div>
+      <Box bgcolor="text.secondary">
+        <div className="wrapper">
+          <Typography variant="h5">Add Airline</Typography>
+
+          <form onSubmit={this.clickAddAirline}>
+            <TextField
+              required
+              id="standard-required"
+              label="Required"
+              helperText="eg. Bob's Discount Airlines"
+              defaultValue={this.state.enteredAirline}
+              onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
+            ></TextField>
+            <TextField
+              required
+              id="standard-required"
+              label="Required"
+              helperText="eg. 27"
+              defaultValue={this.state.enteredNumber}
+              onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
+            ></TextField>
+
+            <Button type="submit" variant="contained" size="large" color="primary">
+              Add Airline
+            </Button>
+          </form>
+        </div>
+      </Box>
     );
   }
 }
