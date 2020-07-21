@@ -3,7 +3,21 @@ import { connect } from 'react-redux';
 
 class AirlineList extends Component {
   render() {
-    return <div></div>;
+    const airlinesInAirport = this.props.store.airlineList.map((item, index) => {
+      return (
+        <tr key={index}>
+          <td>{item}</td>
+        </tr>
+      );
+    });
+    return (
+      <table>
+        <thead>
+          <th>Airline in Airport</th>
+        </thead>
+        <tbody>{airlinesInAirport}</tbody>
+      </table>
+    );
   }
 }
 

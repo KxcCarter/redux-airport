@@ -43,10 +43,17 @@ class FormAddAirline extends Component {
   }
 }
 
-const mapStoreToProps = (store) => {
-  return {
-    store,
-  };
-};
+// I don't need the code below in this component because I am
+// only *sending* data, not viewing data from the store. This
+// is only needed when I need to dynamically update.
+// ------------------------------------------------
+// const mapStoreToProps = (store) => {
+//     return {
+//       store,
+//     };
+//   };
 
-export default connect(mapStoreToProps)(FormAddAirline);
+//   export default connect(mapStoreToProps)(FormAddAirline);
+// ----------------------------------------------------------
+
+export default connect()(FormAddAirline);

@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FormAddAirline from '../FormAddAirline/FormAddAirline';
+import AirlineList from '../AirlineList/AirlineList';
 
 class App extends Component {
   render() {
-    const airlinesInAirport = this.props.store.airlineList.map((item, index) => {
-      return (
-        <tr key={index}>
-          <td>{item}</td>
-        </tr>
-      );
-    });
     return (
       <div>
         <h1>Redux Airport</h1>
         <FormAddAirline />
-        <table>{airlinesInAirport}</table>
+        <AirlineList />
       </div>
     );
   }
