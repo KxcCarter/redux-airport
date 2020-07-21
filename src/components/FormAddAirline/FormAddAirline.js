@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, Grid } from '@material-ui/core';
 
 class FormAddAirline extends Component {
   // Local state set up to temporarily store value from input.
@@ -37,32 +37,36 @@ class FormAddAirline extends Component {
   render() {
     return (
       <Box bgcolor="text.secondary">
-        <div className="wrapper">
-          <Typography variant="h5">Add Airline</Typography>
-
+        <Typography variant="h5">Add Airline</Typography>
+        <Grid container justify="center" spacing={2}>
           <form onSubmit={this.clickAddAirline}>
-            <TextField
-              required
-              id="standard-required"
-              label="Required"
-              helperText="eg. Bob's Discount Airlines"
-              defaultValue={this.state.enteredAirline}
-              onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
-            ></TextField>
-            <TextField
-              required
-              id="standard-required"
-              label="Required"
-              helperText="eg. 27"
-              defaultValue={this.state.enteredNumber}
-              onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
-            ></TextField>
-
-            <Button type="submit" variant="contained" size="large" color="primary">
-              Add Airline
-            </Button>
+            <Grid item>
+              <TextField
+                required
+                id="standard-required"
+                label="Required"
+                helperText="eg. Bob's Discount Airlines"
+                defaultValue={this.state.enteredAirline}
+                onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
+              ></TextField>
+            </Grid>
+            <Grid item>
+              <TextField
+                required
+                id="standard-required"
+                label="Required"
+                helperText="eg. 27"
+                defaultValue={this.state.enteredNumber}
+                onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
+              ></TextField>
+            </Grid>
+            <Grid item>
+              <Button type="submit" variant="contained" size="large" color="primary">
+                Add Airline
+              </Button>
+            </Grid>
           </form>
-        </div>
+        </Grid>
       </Box>
     );
   }
