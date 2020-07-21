@@ -1,29 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {
+  Box,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  Paper,
+  TableBody,
+} from '@material-ui/core';
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
 
 class AirlineList extends Component {
   render() {
-    console.log('this.props.store.airlineList: ', this.props.store.airlineList);
-    const airlinesInAirport = this.props.store.airlineList.map((item, index) => {
+    const airport = this.props.store.airlineList.map((item, index) => {
       return (
-        <tr key={index}>
-          <td>{item.airline}</td>
-          <td>{item.numberOfPlanes}</td>
-        </tr>
+        <StyledTableRow key={index}>
+          <TableCell>{item.airline}</TableCell>
+          <TableCell>{item.numberOfPlanes}</TableCell>
+        </StyledTableRow>
       );
     });
+
     return (
       <div className="wrapper">
         <h3>Airline Data</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Airline in Airport</th>
-              <th>Planes in Airport</th>
-            </tr>
-          </thead>
-          <tbody>{airlinesInAirport}</tbody>
-        </table>
+        <Box>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <StyledTableRow>
+                  <TableCell>Airline in Airport</TableCell>
+                  <TableCell>Number of Planes</TableCell>
+                </StyledTableRow>
+              </TableHead>
+              <TableBody>{airport}</TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
       </div>
     );
   }
