@@ -46,7 +46,7 @@ class FormAddAirline extends Component {
                 id="standard-required"
                 label="Required"
                 helperText="eg. Bob's Discount Airlines"
-                defaultValue={this.state.enteredAirline}
+                value={this.state.enteredAirline}
                 onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
               ></TextField>
             </Grid>
@@ -56,7 +56,7 @@ class FormAddAirline extends Component {
                 id="standard-required"
                 label="Required"
                 helperText="eg. 27"
-                defaultValue={this.state.enteredNumber}
+                value={this.state.enteredNumber}
                 onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
               ></TextField>
             </Grid>

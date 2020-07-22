@@ -22,6 +22,7 @@ const airlineList = (state = defaultAirlineList, action) => {
     };
     return [...state, newPlane];
   }
+
   // A reducer always has to return something.
   return state;
 };
