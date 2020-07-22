@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Button, TextField, Grid } from '@material-ui/core';
+import { Button, TextField, Grid, Paper } from '@material-ui/core';
 
 class FormAddAirline extends Component {
   // Local state set up to temporarily store value from input.
@@ -36,38 +36,44 @@ class FormAddAirline extends Component {
   };
   render() {
     return (
-      <Box bgcolor="text.secondary">
-        <Typography variant="h5">Add Airline</Typography>
-        <Grid container justify="center" spacing={2}>
-          <form onSubmit={this.clickAddAirline}>
-            <Grid item>
-              <TextField
-                required
-                id="standard-required"
-                label="Required"
-                helperText="eg. Bob's Discount Airlines"
-                value={this.state.enteredAirline}
-                onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
-              ></TextField>
-            </Grid>
-            <Grid item>
-              <TextField
-                required
-                id="standard-required"
-                label="Required"
-                helperText="eg. 27"
-                value={this.state.enteredNumber}
-                onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
-              ></TextField>
-            </Grid>
-            <Grid item>
-              <Button type="submit" variant="contained" size="large" color="primary">
-                Add Airline
-              </Button>
-            </Grid>
-          </form>
-        </Grid>
-      </Box>
+      <div>
+        <Paper>
+          <Box p={2}>
+            <Typography variant="h5">Add Airline</Typography>
+          </Box>
+          <Box pb={4}>
+            <form onSubmit={this.clickAddAirline}>
+              <Grid container justify="center" spacing={2}>
+                <Grid item>
+                  <TextField
+                    required
+                    id="standard-required"
+                    label="Required"
+                    helperText="eg. Bob's Discount Airlines"
+                    value={this.state.enteredAirline}
+                    onChange={(event) => this.handleInputChange(event, 'enteredAirline')}
+                  ></TextField>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    required
+                    id="standard-required"
+                    label="Required"
+                    helperText="eg. 27"
+                    value={this.state.enteredNumber}
+                    onChange={(event) => this.handleInputChange(event, 'enteredNumber')}
+                  ></TextField>
+                </Grid>
+                <Grid item>
+                  <Button type="submit" variant="contained" size="large" color="primary">
+                    Add Airline
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </Box>
+        </Paper>
+      </div>
     );
   }
 }

@@ -1,18 +1,3 @@
-table {
-  border-collapse: collapse;
-  margin: auto;
-}
-
-.wrapper {
-  padding: 20px;
-}
-
 body {
   text-align: center;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
 }

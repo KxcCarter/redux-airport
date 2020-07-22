@@ -10,6 +10,7 @@ import {
   TableCell,
   Paper,
   TableBody,
+  TableFooter,
 } from '@material-ui/core';
 
 const StyledTableRow = withStyles((theme) => ({
@@ -31,6 +32,11 @@ class AirlineList extends Component {
       );
     });
 
+    let totalPlanes = 0;
+    this.props.store.airlineList.forEach((item) => {
+      return (totalPlanes += parseInt(item.numberOfPlanes));
+    });
+
     return (
       <div className="wrapper">
         <h3>Airline Data</h3>
@@ -44,6 +50,12 @@ class AirlineList extends Component {
                 </StyledTableRow>
               </TableHead>
               <TableBody>{airport}</TableBody>
+              <TableFooter>
+                <StyledTableRow>
+                  <TableCell align="right">Total Airplanes:</TableCell>
+                  <TableCell align="left">{totalPlanes}</TableCell>
+                </StyledTableRow>
+              </TableFooter>
             </Table>
           </TableContainer>
         </Box>

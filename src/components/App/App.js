@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 class App extends Component {
   render() {
     return (
-      <Container>
+      <Container maxWidth="md">
         <div>
           <Typography variant="h3">Redux Airport</Typography>
           <FormAddAirline />
